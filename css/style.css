@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap");
+
+:root {
+  --purple-950: #24123b;
+  --purple-900: #35194f;
+  --purple-800: #4a1d6d;
+  --purple-700: #68258c;
+  --purple-600: #8750a7;
+  --purple-400: #b78bc8;
+  --purple-200: #dec7e8;
+  --purple-100: #efe4f4;
+  --lavender: #f8f3fb;
+  --white: #ffffff;
+  --shadow: 0 18px 45px rgba(53, 25, 79, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 56px 24px;
+  color: var(--purple-950);
+  font-family: "DM Sans", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(183, 139, 200, 0.28), transparent 24rem),
+    radial-gradient(circle at 88% 85%, rgba(104, 37, 140, 0.16), transparent 28rem),
+    var(--lavender);
+}
+
+body > h1,
+body > section,
+body > form {
+  width: min(760px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body > h1 {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: var(--purple-900);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.35rem, 7vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+body > h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 5px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--purple-400), var(--purple-700));
+}
+
+body > section,
+body > form {
+  margin-bottom: 22px;
+  padding: 28px;
+  border: 1px solid rgba(135, 80, 167, 0.16);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+h2 {
+  margin: 0 0 18px;
+  color: var(--purple-800);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  margin-top: 4px;
+  color: var(--purple-900);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+small {
+  min-height: 18px;
+  color: #a42d67;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 2px solid var(--purple-200);
+  border-radius: 12px;
+  outline: none;
+  color: var(--purple-950);
+  background: var(--white);
+  font: inherit;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+input::placeholder {
+  color: var(--purple-400);
+}
+
+input:focus {
+  border-color: var(--purple-600);
+  box-shadow: 0 0 0 4px rgba(135, 80, 167, 0.14);
+  transform: translateY(-1px);
+}
+
+button {
+  min-height: 46px;
+  margin-top: 6px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 12px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+  box-shadow: 0 8px 18px rgba(74, 29, 109, 0.22);
+  font: 700 0.92rem "DM Sans", system-ui, sans-serif;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+button:hover {
+  box-shadow: 0 12px 24px rgba(74, 29, 109, 0.28);
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: 0 5px 12px rgba(74, 29, 109, 0.2);
+  transform: translateY(0);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(183, 139, 200, 0.55);
+  outline-offset: 3px;
+}
+
+p {
+  min-height: 24px;
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--purple-400);
+  border-radius: 6px;
+  color: var(--purple-800);
+  background: var(--purple-100);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+p:empty {
+  display: none;
+}
+
+@media (min-width: 650px) {
+  body > section form {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  body > section form label,
+  body > section form small {
+    grid-column: 1;
+  }
+
+  body > section form input {
+    grid-column: 1;
+  }
+
+  body > section form button {
+    grid-column: 2;
+    grid-row: 1 / 4;
+  }
+
+  #formMostrar,
+  #formEliminar {
+    grid-template-columns: 1fr;
+  }
+
+  #formMostrar button,
+  #formEliminar button {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 32px 14px;
+  }
+
+  body > section,
+  body > form {
+    padding: 22px 18px;
+  }
+}
